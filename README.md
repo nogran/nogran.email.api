@@ -24,3 +24,22 @@
 | **Validation**            | Fornece um conjunto de anotações que permite validar os atributos das Classes da Camada Model. |
 | **Spring Data JPA**       | Java Persistence API é uma biblioteca que armazena e recupera objetos que são armazenados em bancos de dados. |
 | **MySQL Driver**          | Responsável pela conexão entre nossa API e o Banco de Dados MySQL. |
+
+## Configuração do Banco de Dados
+
+Inserir as linhas abaixo no arquivo **application.properties**, localizado em **src/main/resources**.
+
+```properties
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.database=mysql
+spring.datasource.url=jdbc:mysql://localhost/db_digitalnogran?createDatabaseIfNotExist=true&serverTimezone=America/Sao_Paulo&useSSl=false
+spring.datasource.username=root
+spring.datasource.password=root
+
+spring.jpa.show-sql=true
+
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
+
+spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
+spring.jackson.time-zone=Brazil/East
+```
