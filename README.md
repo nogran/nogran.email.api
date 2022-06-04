@@ -43,3 +43,15 @@ spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL8Dialect
 spring.jackson.date-format=yyyy-MM-dd HH:mm:ss
 spring.jackson.time-zone=Brazil/East
 ```
+
+| Item                                        | Descrição                                                    |
+| ------------------------------------------- | ------------------------------------------------------------ |
+| **spring.jpa.hibernate.ddl-auto**           | Define como o JPA irá gerenciar o Banco de dados: **Update** ⇨ atualiza a estrutura do banco de dados, exceto remover atributos ou tabelas, e mantém os dados persistidos. |
+| **spring.jpa.database**                     | Define o Banco de dados que será utilizado (MySQL)           |
+| **spring.datasource.url**                   | Define o nome do Banco (db_blogpessoal), a criação automática do banco de dados no MySQL (caso não exista), o fuso horario do servidor MySQL e desabilita a camada de segurança da conexão com o MySQL (SSl) |
+| **spring.datasource.username**              | Define o usuário do MySQL                                    |
+| **spring.datasource.password**              | Define a senha do usuário do MySQL                           |
+| **spring.jpa.show-sql**                     | Exibe todas as Queries SQL no Console do STS                 |
+| **spring.jpa.properties.hibernate.dialect** | Configura a versão do MySQL, em nosso projeto versão 8.      |
+| **spring.jackson.date-format**              | Configura o formato da Data e da Hora da aplicação           |
+| **spring.jackson.time-zone**                | Configura o fuso horario da aplicação                        |
