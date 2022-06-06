@@ -1,5 +1,14 @@
 # nogran-site-backend
 
+<h2>Etapas de criacao backend</h2>
+
+- [x] Criar o Projeto Spring
+- [x] Configurar as Dependências do Projeto
+- [x] Configurar o Banco de dados
+- [x] Criar a Camada Model
+- [] Criar a Camada Repository
+- [] Criar a Camada Controller
+
 ## Configuracoes iniciais
 
 | Item             | Descrição                                                    |
