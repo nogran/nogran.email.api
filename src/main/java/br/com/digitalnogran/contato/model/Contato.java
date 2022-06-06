@@ -71,7 +71,7 @@ public class Contato {
 	private String telefone;	
 	
 	@NotNull(message = "O atributo email é obrigatório!")
-	@Size(min = 10, max = 100, message = "O atributo email deve conter no mínimo 10 e no máximo 100 caracteres.")
+	@Size(min = 5, max = 100, message = "O atributo email deve conter no mínimo 5 e no máximo 100 caracteres.")
 	private String email;	
 	
 	@NotNull(message = "O atributo texto é obrigatório!")
@@ -79,8 +79,7 @@ public class Contato {
 	private String texto;
 	
 	/**
-	 * A anotação @UpdateTimestamp Indica se o atributo receberá um Timestamp (Data e hora do sistema)
-	 * e sempre que a Postagem for atualizada o atributo também será atualizado.
+	 * A anotação @UpdateTimestamp Indica que o atributo receberá um Timestamp (Data e hora do sistema).
 	 */
 	@UpdateTimestamp
 	private LocalDateTime data;
