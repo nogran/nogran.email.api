@@ -1,4 +1,4 @@
-package br.com.digitalnogran.contato;
+package br.com.digitalnogran;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
