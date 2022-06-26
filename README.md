@@ -3,8 +3,7 @@ API REST em Spring Boot para Aplicações Corporativas.
 
 ## Descrição
 
-Api para envio automatico de email contendo inputs (dados inseridos) do Contato.
-Ao mesmo tempo, os Cadastros de Contato sao gravados no banco de dados.
+Api para Cadastro de usuarios no banco de dados e envio automatico de E-mail contendo os inputs (dados inseridos do usuario) para a equipe responsavel.
 
 ## :rocket: Tools:
 <div align="center">
