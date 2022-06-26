@@ -38,7 +38,6 @@ public class ContatoController {
 				.orElse(ResponseEntity.notFound().build());
 	}
 	
-	
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Contato>> getByNome(@PathVariable String nome){
 		return ResponseEntity.ok(contatoRepository.findAllByNomeContainingIgnoreCase(nome));
