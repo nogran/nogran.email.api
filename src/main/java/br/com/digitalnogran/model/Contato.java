@@ -1,4 +1,4 @@
-package br.com.digitalnogran.contato.model;
+package br.com.digitalnogran.model;
 
 import java.time.LocalDateTime;
 
@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -70,14 +71,14 @@ public class Contato {
 	@Size(min = 10, max = 14, message = "O atributo telefone deve conter no mínimo 10 e no máximo 14 caracteres.")
 	private String telefone;	
 	
-	@NotNull(message = "O atributo email é obrigatório!")
-	@Size(min = 5, max = 100, message = "O atributo email deve conter no mínimo 5 e no máximo 100 caracteres.")
+	@NotNull(message = "O atributo E-mail é obrigatório!")
+	@Email
 	private String email;	
 	
-	@NotNull(message = "O atributo texto é obrigatório!")
-	@Size(min = 10, max = 1000, message = "O atributo texto deve conter no mínimo 10 e no máximo 500 caracteres.")
-	private String texto;
+	@NotNull(message = "O atributo Mensagem é obrigatório!")
+	private String mensagem;
 	
+
 	/**
 	 * A anotação @UpdateTimestamp Indica que o atributo receberá um Timestamp (Data e hora do sistema).
 	 */
@@ -108,12 +109,12 @@ public class Contato {
 		this.nome = nome;
 	}
 
-	public String getTexto() {
-		return texto;
+	public String getMensagem() {
+		return mensagem;
 	}
 
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
 	}
 
 	public String getTelefone() {
