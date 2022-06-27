@@ -1,8 +1,8 @@
 # Digital Nogran - Back-End
 API REST em Spring Boot para Aplicações Corporativas.
 
-[***Heroku***](https://nogran-site.herokuapp.com/)<br>
-[***Digital Nogran***](https://digitalnogran.com.br/)
+[**Heroku**](https://nogran-site.herokuapp.com/)<br>
+[**Digital Nogran**](https://digitalnogran.com.br/)
 
 ## Descrição
 
