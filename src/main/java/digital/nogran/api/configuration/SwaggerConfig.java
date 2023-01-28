@@ -1,4 +1,4 @@
-package br.com.digitalnogran.configuration;
+package digital.nogran.api.configuration;
 
 import org.springdoc.core.customizers.OpenApiCustomiser;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +20,7 @@ public class SwaggerConfig {
         return new OpenAPI()
                 .info(new Info()
                     .title("Digital Nogran")
-                    .description("Digital Nogran - Solucoes Web")
+                    .description("Digital Nogran")
                     .version("v0.0.1")
                 .license(new License()
                     .name("Digital Nogran")

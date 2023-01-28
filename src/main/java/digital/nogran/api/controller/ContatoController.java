@@ -1,9 +1,11 @@
-package br.com.digitalnogran.controller;
+package digital.nogran.api.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
+import digital.nogran.api.model.Contato;
+import digital.nogran.api.repository.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,9 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import br.com.digitalnogran.model.Contato;
-import br.com.digitalnogran.repository.ContatoRepository;
 
 @RestController
 @RequestMapping("/contato")

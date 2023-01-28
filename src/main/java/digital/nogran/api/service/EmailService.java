@@ -1,7 +1,7 @@
-package br.com.digitalnogran.service;
+package digital.nogran.api.service;
 
 //Importing required classes
-import br.com.digitalnogran.model.EmailDetails;
+import digital.nogran.api.model.EmailDetails;
 
 //Interface
 public interface EmailService {
