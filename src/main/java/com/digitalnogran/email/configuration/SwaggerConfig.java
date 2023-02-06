@@ -1,4 +1,4 @@
-package br.com.digitalnogran.configuration;
+package com.digitalnogran.email.configuration;
 
 import org.springdoc.core.customizers.OpenApiCustomiser;
 import org.springframework.context.annotation.Bean;
@@ -15,23 +15,23 @@ import io.swagger.v3.oas.models.responses.ApiResponses;
 @Configuration
 public class SwaggerConfig {
 
-	@Bean
+    @Bean
     public OpenAPI springDigitalNogranOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
-                    .title("Digital Nogran")
-                    .description("Digital Nogran - Solucoes Web")
-                    .version("v0.0.1")
-                .license(new License()
-                    .name("Digital Nogran")
-                    .url("https://digitalnogran.com.br/"))
-                .contact(new Contact()
-                    .name("Digital Nogran")
-                    .url("https://digitalnogran.com.br/")
-                    .email("mateusnog95@gmail.com")))
+                        .title("Digital Nogran")
+                        .description("Digital Nogran")
+                        .version("v0.0.1")
+                        .license(new License()
+                                .name("Digital Nogran")
+                                .url("https://digitalnogran.com.br/"))
+                        .contact(new Contact()
+                                .name("Digital Nogran")
+                                .url("https://digitalnogran.com.br/")
+                                .email("mateusnog95@gmail.com")))
                 .externalDocs(new ExternalDocumentation()
-                    .description("Github")
-                    .url("https://github.com/nogran/nogran-site-backend"));
+                        .description("Github")
+                        .url("https://github.com/nogran/nogran-site-backend"));
     }
 
     @Bean

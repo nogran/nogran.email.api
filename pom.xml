@@ -9,10 +9,10 @@
 		<version>2.7.0</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>br.com.digitalnogran</groupId>
-	<artifactId>digitalnogran</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>digitalnogran</name>
+	<groupId>com.digitalnogran</groupId>
+	<artifactId>email</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>email</name>
 	<description>Digital Nogran</description>
 	<properties>
 		<java.version>17</java.version>
