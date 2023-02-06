@@ -5,7 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import com.digitalnogran.email.model.Contato;
-import com.digitalnogran.email.repository.ContatoRepository;
+import com.digitalnogran.email.service.ContatoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,27 +23,27 @@ import org.springframework.web.bind.annotation.RestController;
 @AllArgsConstructor
 public class ContatoController {
 
-    private final ContatoRepository contatoRepository;
+    private final ContatoService contatoService;
 
     @GetMapping
-    public ResponseEntity<List<Contato>> getAll() {
-        return ResponseEntity.ok(contatoRepository.findAll());
+    public ResponseEntity<List<Contato>> findAll() {
+        return ResponseEntity.ok(contatoService.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Contato> getById(@PathVariable Long id) {
-        return contatoRepository.findById(id)
-                .map(resposta -> ResponseEntity.ok(resposta))
+    public ResponseEntity<Contato> findById(@PathVariable Long id) {
+        return contatoService.findById(id)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
-    @GetMapping("/nome/{nome}")
-    public ResponseEntity<List<Contato>> getByNome(@PathVariable String nome) {
-        return ResponseEntity.ok(contatoRepository.findAllByNomeContainingIgnoreCase(nome));
+    @GetMapping("/nome/{name}")
+    public ResponseEntity<List<Contato>> findByName(@PathVariable String name) {
+        return ResponseEntity.ok(contatoService.findByName(name));
     }
 
-    @PostMapping
-    public ResponseEntity<Contato> postContato(@Valid @RequestBody Contato contato) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(contatoRepository.save(contato));
+    @PostMapping("/save")
+    public ResponseEntity<Contato> saveContato(@Valid @RequestBody Contato contato) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(contatoService.save(contato));
     }
 }
