@@ -1,6 +1,6 @@
-package com.digital.nogran.api.service;
+package com.digitalnogran.email.service;
 
-import com.digital.nogran.api.model.EmailDetails;
+import com.digitalnogran.email.model.EmailDetails;
 
 import java.io.File;
 import javax.mail.MessagingException;

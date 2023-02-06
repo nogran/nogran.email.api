@@ -1,11 +1,11 @@
-package com.digital.nogran.api.controller;
+package com.digitalnogran.email.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
-import com.digital.nogran.api.model.Contato;
-import com.digital.nogran.api.repository.ContatoRepository;
+import com.digitalnogran.email.model.Contato;
+import com.digitalnogran.email.repository.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

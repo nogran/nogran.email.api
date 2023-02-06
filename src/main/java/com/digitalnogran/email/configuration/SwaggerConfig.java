@@ -1,4 +1,4 @@
-package com.digital.nogran.api.configuration;
+package com.digitalnogran.email.configuration;
 
 import org.springdoc.core.customizers.OpenApiCustomiser;
 import org.springframework.context.annotation.Bean;

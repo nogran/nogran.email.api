@@ -1,4 +1,4 @@
-package com.digital.nogran.api.model;
+package com.digitalnogran.email.model;
 
 import java.time.LocalDateTime;
 
