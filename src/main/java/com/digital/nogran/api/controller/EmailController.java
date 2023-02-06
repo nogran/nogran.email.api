@@ -1,8 +1,8 @@
-package digital.nogran.api.controller;
+package com.digital.nogran.api.controller;
 
 //Importing required classes
-import digital.nogran.api.model.EmailDetails;
-import digital.nogran.api.service.EmailService;
+import com.digital.nogran.api.model.EmailDetails;
+import com.digital.nogran.api.service.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;

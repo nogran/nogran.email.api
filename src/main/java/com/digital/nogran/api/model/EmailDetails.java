@@ -1,4 +1,4 @@
-package digital.nogran.api.model;
+package com.digital.nogran.api.model;
 
 //Importing required classes
 
