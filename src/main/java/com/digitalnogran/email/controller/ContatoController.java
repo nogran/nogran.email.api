@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/contato")
+@RequestMapping("/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @AllArgsConstructor
 public class ContatoController {

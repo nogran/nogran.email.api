@@ -3,12 +3,10 @@ package com.digitalnogran.email.controller;
 import com.digitalnogran.email.model.EmailDetails;
 import com.digitalnogran.email.service.EmailService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/api/v1")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @AllArgsConstructor
 public class EmailController {
