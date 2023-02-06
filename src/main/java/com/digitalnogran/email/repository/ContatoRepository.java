@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ContatoRepository extends JpaRepository<Contato, Long> {
-    public List<Contato> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
+    List<Contato> findAllByNomeContainingIgnoreCase(@Param("nome") String nome);
 }

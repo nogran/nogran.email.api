@@ -6,7 +6,7 @@ import javax.validation.Valid;
 
 import com.digitalnogran.email.model.Contato;
 import com.digitalnogran.email.repository.ContatoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,10 +20,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/contato")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
+@AllArgsConstructor
 public class ContatoController {
 
-    @Autowired
-    private ContatoRepository contatoRepository;
+    private final ContatoRepository contatoRepository;
 
     @GetMapping
     public ResponseEntity<List<Contato>> getAll() {
@@ -46,5 +46,4 @@ public class ContatoController {
     public ResponseEntity<Contato> postContato(@Valid @RequestBody Contato contato) {
         return ResponseEntity.status(HttpStatus.CREATED).body(contatoRepository.save(contato));
     }
-
 }
