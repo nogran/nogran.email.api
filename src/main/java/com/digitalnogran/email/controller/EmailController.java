@@ -1,7 +1,7 @@
 package com.digitalnogran.email.controller;
 
 import com.digitalnogran.email.model.EmailDetails;
-import com.digitalnogran.email.service.EmailService;
+import com.digitalnogran.email.service.EmailSenderService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -14,19 +14,19 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @Slf4j
 public class EmailController {
-    private final EmailService emailService;
+    private final EmailSenderService emailSenderService;
 
     @PostMapping(value = "/sendMail", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute EmailDetails details) {
         log.info("POST: /api/v1/sendMail with param Recipient Address '{}'", details.getRecipient());
-        emailService.sendSimpleMail(details);
+        emailSenderService.sendSimpleMail(details);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/sendMailWithAttachment", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMailWithAttachment(@ModelAttribute EmailDetails details) {
         log.info("POST: /api/v1/sendMail with param Recipient Address '{}'", details.getRecipient());
-        emailService.sendMailWithAttachment(details);
+        emailSenderService.sendMailWithAttachment(details);
         return ResponseEntity.ok().build();
     }
 }
