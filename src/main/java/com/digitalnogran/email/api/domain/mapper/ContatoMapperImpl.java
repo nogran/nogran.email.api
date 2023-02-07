@@ -15,8 +15,8 @@ public class ContatoMapperImpl implements ContatoMapper {
                                 "Nome: %s\n" +
                                 "Telefone: %s\n" +
                                 "Data: %s\n" +
-                                "Mensagem: %s\n" +
-                                contact.getEmail(), contact.getName(),
+                                "Mensagem: %s\n",
+                        contact.getEmail(), contact.getName(),
                         contact.getPhone(), contact.getDate(), contact.getMessage()));
 
         emailDetails.setSubject(subject);

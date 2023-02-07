@@ -48,7 +48,7 @@ public class ContatoController {
 
     @PostMapping("/save")
     public ResponseEntity<Contact> saveContato(@Valid @RequestBody Contact contact) {
-        log.info("POST: /api/v1/save with params ID '{}' and Email '{}'", contact.getId(), contact.getEmail());
+        log.info("POST: /api/v1/save with param Email '{}'", contact.getEmail());
         return ResponseEntity.status(HttpStatus.CREATED).body(contatoService.save(contact));
     }
 }
