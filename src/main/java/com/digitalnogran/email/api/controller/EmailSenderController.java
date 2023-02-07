@@ -4,6 +4,8 @@ import com.digitalnogran.email.api.service.EmailService;
 import com.digitalnogran.email.api.domain.model.Contact;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.var;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +23,9 @@ public class EmailSenderController {
     @PostMapping(value = "/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute Contact contact) {
         log.info("POST: /api/v1/save with param Contato Email '{}'", contact.getEmail());
-        emailService.manageEmail(contact, from, subject);
-        return ResponseEntity.ok().build();
+        var isSent = emailService.isMailSent(contact, from, subject);
+        return isSent == false ?
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build() :
+                ResponseEntity.status(HttpStatus.CREATED).build();
     }
 }

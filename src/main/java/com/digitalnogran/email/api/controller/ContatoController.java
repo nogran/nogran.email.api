@@ -8,6 +8,7 @@ import com.digitalnogran.email.api.service.ContatoService;
 import com.digitalnogran.email.api.domain.model.Contact;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import lombok.var;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -49,6 +50,9 @@ public class ContatoController {
     @PostMapping("/save")
     public ResponseEntity<Contact> saveContato(@Valid @RequestBody Contact contact) {
         log.info("POST: /api/v1/save with param Email '{}'", contact.getEmail());
-        return ResponseEntity.status(HttpStatus.CREATED).body(contatoService.save(contact));
+        var savedContact = contatoService.save(contact);
+        return savedContact == null ?
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build() :
+                ResponseEntity.status(HttpStatus.CREATED).body(savedContact);
     }
 }
