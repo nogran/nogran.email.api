@@ -20,7 +20,7 @@ public class EmailSenderController {
 
     @PostMapping(value = "/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute Contact contact) {
-        log.info("POST: /api/v1/save with params Email '{}'", contact.getEmail());
+        log.info("POST: /api/v1/save with param Contato Email '{}'", contact.getEmail());
         emailService.manageEmail(contact, from, subject);
         return ResponseEntity.ok().build();
     }
