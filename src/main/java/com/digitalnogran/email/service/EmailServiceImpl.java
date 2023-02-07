@@ -6,6 +6,7 @@ import java.io.File;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
@@ -15,13 +16,14 @@ import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class EmailServiceImpl implements EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String sender;
 
-    public String sendSimpleMail(EmailDetails details) {
+    public void sendSimpleMail(EmailDetails details) {
         try {
             SimpleMailMessage mailMessage
                     = new SimpleMailMessage();
@@ -32,14 +34,13 @@ public class EmailServiceImpl implements EmailService {
             mailMessage.setSubject(details.getSubject());
 
             javaMailSender.send(mailMessage);
-            return "Mail Sent Successfully.";
+            log.info("Mail Sent Successfully.");
         } catch (Exception e) {
-            return "Error while Sending Mail.";
+            log.error("Error while Sending Mail.", e);
         }
     }
 
-    public String
-    sendMailWithAttachment(EmailDetails details) {
+    public void sendMailWithAttachment(EmailDetails details) {
         MimeMessage mimeMessage
                 = javaMailSender.createMimeMessage();
         MimeMessageHelper mimeMessageHelper;
@@ -61,9 +62,9 @@ public class EmailServiceImpl implements EmailService {
                     file.getFilename(), file);
 
             javaMailSender.send(mimeMessage);
-            return "Mail sent Successfully.";
+            log.info("Mail sent Successfully.");
         } catch (MessagingException e) {
-            return "Error while sending mail!";
+            log.error("Error while Sending Mail.", e);
         }
     }
 }
