@@ -18,14 +18,14 @@ public class EmailController {
 
     @PostMapping(value = "/sendMail", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute EmailDetails details) {
-        log.info("POST: /api/v1/sendMail");
+        log.info("POST: /api/v1/sendMail with param Recipient Address '{}'", details.getRecipient());
         emailService.sendSimpleMail(details);
         return ResponseEntity.ok().build();
     }
 
     @PostMapping(value = "/sendMailWithAttachment", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMailWithAttachment(@ModelAttribute EmailDetails details) {
-        log.info("POST: /api/v1/sendMailWithAttachment");
+        log.info("POST: /api/v1/sendMail with param Recipient Address '{}'", details.getRecipient());
         emailService.sendMailWithAttachment(details);
         return ResponseEntity.ok().build();
     }
