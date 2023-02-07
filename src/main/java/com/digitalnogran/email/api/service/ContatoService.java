@@ -2,7 +2,7 @@ package com.digitalnogran.email.api.service;
 
 import com.digitalnogran.email.api.repository.ContatoRepository;
 import com.digitalnogran.email.api.domain.mapper.ContatoMapper;
-import com.digitalnogran.email.api.domain.model.Contato;
+import com.digitalnogran.email.api.domain.model.Contact;
 import com.digitalnogran.email.api.domain.model.EmailDetails;
 import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
@@ -17,23 +17,23 @@ public class ContatoService {
     private final ContatoRepository contatoRepository;
     private final ContatoMapper contatoMapper = Mappers.getMapper(ContatoMapper.class);
 
-    public List<Contato> findAll() {
+    public List<Contact> findAll() {
         return contatoRepository.findAll();
     }
 
-    public Optional<Contato> findById(Long id) {
+    public Optional<Contact> findById(Long id) {
         return contatoRepository.findById(id);
     }
 
-    public List<Contato> findByName(String name) {
+    public List<Contact> findByName(String name) {
         return contatoRepository.findAllByNameContainingIgnoreCase(name);
     }
 
-    public Contato save(Contato contato) {
-        return contatoRepository.save(contato);
+    public Contact save(Contact contact) {
+        return contatoRepository.save(contact);
     }
 
-    public EmailDetails buildEmail(Contato contato, String from, String subject) {
-        return contatoMapper.toEmailDetails(contato, from, subject);
+    public EmailDetails buildEmail(Contact contact, String from, String subject) {
+        return contatoMapper.toEmailDetails(contact, from, subject);
     }
 }

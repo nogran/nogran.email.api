@@ -10,15 +10,14 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "contato")
+@Table(name = "contact")
 @Data
-public class Contato {
+public class Contact {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

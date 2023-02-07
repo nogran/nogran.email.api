@@ -1,7 +1,7 @@
 package com.digitalnogran.email.api.controller;
 
 import com.digitalnogran.email.api.service.EmailService;
-import com.digitalnogran.email.api.domain.model.Contato;
+import com.digitalnogran.email.api.domain.model.Contact;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
@@ -19,9 +19,9 @@ public class EmailSenderController {
     private static String subject = "Contato";
 
     @PostMapping(value = "/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<String> sendMail(@ModelAttribute Contato contato) {
-        log.info("POST: /api/v1/save with params ID '{}' and Email '{}'", contato.getId(), contato.getEmail());
-        emailService.manageEmail(contato, from, subject);
+    public ResponseEntity<String> sendMail(@ModelAttribute Contact contact) {
+        log.info("POST: /api/v1/save with params ID '{}' and Email '{}'", contact.getId(), contact.getEmail());
+        emailService.manageEmail(contact, from, subject);
         return ResponseEntity.ok().build();
     }
 }
