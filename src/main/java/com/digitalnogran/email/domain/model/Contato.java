@@ -1,4 +1,4 @@
-package com.digitalnogran.email.model;
+package com.digitalnogran.email.domain.model;
 
 import java.time.LocalDateTime;
 
@@ -16,7 +16,7 @@ import lombok.Data;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "tb_contato")
+@Table(name = "contato")
 @Data
 public class Contato {
     @Id
@@ -24,20 +24,18 @@ public class Contato {
     private Long id;
 
     @NotBlank(message = "O atributo nome é obrigatório e não pode utilizar espaços em branco!")
-    @Size(min = 5, max = 100, message = "O atributo nome deve conter no mínimo 05 e no máximo 100 caracteres.")
-    private String nome;
+    private String name;
 
     @NotNull(message = "O atributo telefone é obrigatório!")
-    @Size(min = 10, max = 14, message = "O atributo telefone deve conter no mínimo 10 e no máximo 14 caracteres.")
-    private String telefone;
+    private String phone;
 
     @NotNull(message = "O atributo E-mail é obrigatório!")
     @Email
     private String email;
 
     @NotNull(message = "O atributo Mensagem é obrigatório!")
-    private String mensagem;
+    private String message;
 
     @UpdateTimestamp
-    private LocalDateTime data;
+    private LocalDateTime date;
 }

@@ -1,4 +1,4 @@
-package com.digitalnogran.email.model;
+package com.digitalnogran.email.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

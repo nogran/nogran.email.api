@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.digitalnogran.email.model.Contato;
+import com.digitalnogran.email.domain.model.Contato;
 import com.digitalnogran.email.service.ContatoService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
