@@ -1,5 +1,6 @@
 package com.digitalnogran.email.api.service;
 
+import com.digitalnogran.email.api.domain.dto.ContactDTO;
 import com.digitalnogran.email.api.repository.ContatoRepository;
 import com.digitalnogran.email.api.domain.mapper.ContatoMapper;
 import com.digitalnogran.email.api.domain.model.Contact;
@@ -8,6 +9,7 @@ import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,11 +23,33 @@ public class ContatoService {
         return contatoRepository.findAll();
     }
 
+    public List<ContactDTO> getAll() {
+        List<ContactDTO> contactDTOs = new ArrayList<>();
+        List<Contact> contacts = contatoRepository.findAll();
+
+        for (Contact item : contacts) {
+            contactDTOs.add(buildContractDTO(item));
+        }
+        return contactDTOs;
+    }
+
     public Optional<Contact> findById(Long id) {
         return contatoRepository.findById(id);
     }
 
-    public List<Contact> findByName(String name) {
+    public ContactDTO buildContractDTO(Contact model) {
+        return contatoMapper.modelToDto(model);
+    }
+
+    public List<ContactDTO> buildContractDTOs(List<Contact> models) {
+        List<ContactDTO> contactDTOs = new ArrayList<>();
+        for (Contact contact : models) {
+            contactDTOs.add(buildContractDTO(contact));
+        }
+        return contactDTOs;
+    }
+
+    public List<Contact> findAllByNameContainingIgnoreCase(String name) {
         return contatoRepository.findAllByNameContainingIgnoreCase(name);
     }
 

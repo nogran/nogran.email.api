@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.digitalnogran.email.api.domain.dto.ContactDTO;
 import com.digitalnogran.email.api.service.ContatoService;
 import com.digitalnogran.email.api.domain.model.Contact;
 import lombok.AllArgsConstructor;
@@ -28,23 +29,29 @@ public class ContatoController {
     private final ContatoService contatoService;
 
     @GetMapping
-    public ResponseEntity<List<Contact>> findAll() {
+    public ResponseEntity<List<ContactDTO>> findAll() {
         log.info("GET: /api/v1/");
-        return ResponseEntity.ok(contatoService.findAll());
+        return ResponseEntity.ok(contatoService.getAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Contact> findById(@PathVariable Long id) {
+    public ResponseEntity<ContactDTO> findById(@PathVariable Long id) {
         log.info("GET: /api/v1/{id} with param ID '{}'", id);
-        return contatoService.findById(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+        var contact = contatoService.findById(id);
+        if (!contact.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(contatoService.buildContractDTO(contact.get()));
     }
 
-    @GetMapping("/nome/{name}")
-    public ResponseEntity<List<Contact>> findByName(@PathVariable String name) {
-        log.info("GET: /api/v1/{id} with param Name '{}'", name);
-        return ResponseEntity.ok(contatoService.findByName(name));
+    @GetMapping("/name/{name}")
+    public ResponseEntity<List<ContactDTO>> findAllByNameContainingIgnoreCase(@PathVariable String name) {
+        log.info("GET: /api/v1/{name} with param Name '{}'", name);
+        var contacts = contatoService.findAllByNameContainingIgnoreCase(name);
+        if (contacts.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+        return ResponseEntity.ok(contatoService.buildContractDTOs(contacts));
     }
 
     @PostMapping("/save")
