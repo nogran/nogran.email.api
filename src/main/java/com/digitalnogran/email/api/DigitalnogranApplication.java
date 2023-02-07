@@ -1,4 +1,4 @@
-package com.digitalnogran.email;
+package com.digitalnogran.email.api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

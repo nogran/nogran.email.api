@@ -1,7 +1,7 @@
-package com.digitalnogran.email.domain.mapper;
+package com.digitalnogran.email.api.domain.mapper;
 
-import com.digitalnogran.email.domain.model.Contato;
-import com.digitalnogran.email.domain.model.EmailDetails;
+import com.digitalnogran.email.api.domain.model.Contato;
+import com.digitalnogran.email.api.domain.model.EmailDetails;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

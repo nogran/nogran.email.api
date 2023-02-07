@@ -1,7 +1,7 @@
-package com.digitalnogran.email.controller;
+package com.digitalnogran.email.api.controller;
 
-import com.digitalnogran.email.domain.model.Contato;
-import com.digitalnogran.email.service.EmailService;
+import com.digitalnogran.email.api.service.EmailService;
+import com.digitalnogran.email.api.domain.model.Contato;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;

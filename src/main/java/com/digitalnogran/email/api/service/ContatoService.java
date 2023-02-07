@@ -1,9 +1,9 @@
-package com.digitalnogran.email.service;
+package com.digitalnogran.email.api.service;
 
-import com.digitalnogran.email.domain.mapper.ContatoMapper;
-import com.digitalnogran.email.domain.model.Contato;
-import com.digitalnogran.email.domain.model.EmailDetails;
-import com.digitalnogran.email.repository.ContatoRepository;
+import com.digitalnogran.email.api.repository.ContatoRepository;
+import com.digitalnogran.email.api.domain.mapper.ContatoMapper;
+import com.digitalnogran.email.api.domain.model.Contato;
+import com.digitalnogran.email.api.domain.model.EmailDetails;
 import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;

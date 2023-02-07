@@ -1,7 +1,7 @@
-package com.digitalnogran.email.service;
+package com.digitalnogran.email.api.service;
 
-import com.digitalnogran.email.domain.model.Contato;
-import com.digitalnogran.email.domain.model.EmailDetails;
+import com.digitalnogran.email.api.domain.model.Contato;
+import com.digitalnogran.email.api.domain.model.EmailDetails;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
