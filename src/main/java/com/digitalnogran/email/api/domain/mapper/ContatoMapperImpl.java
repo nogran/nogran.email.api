@@ -11,12 +11,12 @@ public class ContatoMapperImpl implements ContatoMapper {
 
         emailDetails.setRecipient(from);
         emailDetails.setMsgBody(
-                String.format("Email: %s\n",
-                        "Nome: %s\n",
-                        "Telefone: %s\n",
-                        "Data: %s\n",
-                        "Mensagem: %s\n",
-                        contact.getEmail(), contact.getName(),
+                String.format("Email: %s\n" +
+                                "Nome: %s\n" +
+                                "Telefone: %s\n" +
+                                "Data: %s\n" +
+                                "Mensagem: %s\n" +
+                                contact.getEmail(), contact.getName(),
                         contact.getPhone(), contact.getDate(), contact.getMessage()));
 
         emailDetails.setSubject(subject);
