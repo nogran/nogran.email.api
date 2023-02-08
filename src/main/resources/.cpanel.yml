@@ -1,0 +1,3 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/digita11/digitalnogran.com.br/nogran-email-api-dev/
