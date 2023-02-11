@@ -5,8 +5,9 @@ services:
   app:
     build: ./nogran.email.api
     restart: on-failure
+    env_file: ./.env
     ports:
-      - 6868:8080
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     volumes:
       - .m2:/root/.m2
     stdin_open: true
