@@ -12,15 +12,15 @@ https://digitalnogran.com.br/
 ## Instalação
 
 1. Clone o repositório:
-
+<br>
 ```git clone https://github.com/nogran/nogran.email.api.git```
 
 2. Entre na pasta do projeto:
-
+<br>
 ```cd nogran.email.api```
 
 3. Execute o seguinte comando para construir e executar a imagem do Docker:
-
+<br>
 ```docker-compose -f "docker-compose.yaml" up -d --build```
 
 Se tudo correr bem, a API estará disponível na URL http://localhost:8080/.
