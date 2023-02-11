@@ -26,7 +26,7 @@ Se tudo correr bem, a API estará disponível na URL http://localhost:8080/
 
 Contribuições são bem-vindas. Para alterações importantes, por favor, abra uma issue para discutir o que você gostaria de mudar.
 
-## :rocket: Tools:
+## :rocket: Tools
 <div align="center">
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original-wordmark.svg" width="70" height="70">
 &nbsp;
@@ -35,6 +35,9 @@ Contribuições são bem-vindas. Para alterações importantes, por favor, abra 
 &nbsp;
 &nbsp;
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="70" height="70">
+&nbsp;
+&nbsp;
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original-wordmark.svg" width="70" height="70">
 &nbsp;
 &nbsp;
 </div>
