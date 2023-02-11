@@ -3,7 +3,7 @@ version: "3.8"
 services:
 
   app:
-    build: ./nogran.email.api
+    build: ./nogran.email.api/
     restart: on-failure
     env_file: ./.env
     ports:
