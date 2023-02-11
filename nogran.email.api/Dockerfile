@@ -15,7 +15,7 @@ RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=p
 
 COPY . .
 RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "package" ]
-RUN mv ./target/`cat artifactId`-`cat version`.jar ./application.jar
+RUN mv ./target/`cat artifactId`-`cat version`.jar ./nogran.api.email/application.jar
 
 # Distribution Stage
 
