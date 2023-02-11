@@ -4,7 +4,6 @@ FROM amazoncorretto:17-alpine3.15-jdk as build
 WORKDIR /build
 RUN apk add curl maven=3.8.3-r0
 RUN curl -s "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.12.0/opentelemetry-javaagent.jar" -o opentelemetry-javaagent.jar
-COPY pom.xml ./nogran.email.api/
 COPY pom.xml ./
 
 # Getting version info to build package
@@ -16,7 +15,7 @@ RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=p
 
 COPY . .
 RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "package" ]
-RUN mv ./target/`cat artifactId`-`cat version`.jar ./application.jar
+RUN mv .nogran.email.api/target/`cat artifactId`-`cat version`.jar ./application.jar
 
 # Distribution Stage
 
