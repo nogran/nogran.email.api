@@ -20,7 +20,7 @@ https://digitalnogran.com.br/
 3. Execute o seguinte comando para construir e executar a imagem do Docker:
 ```docker-compose -f "docker-compose.yaml" up -d --build```
 
-Se tudo correr bem, a API estará disponível na URL http://localhost:8080/
+Se tudo correr bem, a API estará disponível na URL http://[${SEU_IP}]:6868/
 
 ## Contribuição
 
