@@ -23,7 +23,7 @@ public class ContactMock {
 
         contact.setId(1L);
         contact.setName("John Doe");
-        contact.setPhone("00999999999");
+        contact.setPhone("123456789");
         contact.setEmail("john.doe@email.com");
         contact.setMessage("Message test");
         contact.setDate(LocalDateTime.now());
@@ -36,7 +36,7 @@ public class ContactMock {
 
         contact.setId(2L);
         contact.setName("Jane Doe");
-        contact.setPhone("00999999999");
+        contact.setPhone("987654321");
         contact.setEmail("jane.doe@email.com");
         contact.setMessage("Message test");
         contact.setDate(LocalDateTime.now());

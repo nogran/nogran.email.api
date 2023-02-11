@@ -1,8 +1,8 @@
 package com.nogran.email.api.mock;
 
 import com.nogran.email.api.domain.dto.ContactDTO;
+import com.nogran.email.api.domain.model.Contact;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,27 +18,29 @@ public class ContactDTOMock {
     }
 
     public static ContactDTO createContact1() {
+        Contact model = ContactMock.createContact1();
         ContactDTO contact = new ContactDTO();
 
-        contact.setId(1L);
-        contact.setName("John Doe");
-        contact.setPhone("00999999999");
-        contact.setEmail("john.doe@email.com");
-        contact.setMessage("Message test");
-        contact.setDate(LocalDateTime.now());
+        contact.setId(model.getId());
+        contact.setName(model.getName());
+        contact.setPhone(model.getPhone());
+        contact.setEmail(model.getEmail());
+        contact.setMessage(model.getMessage());
+        contact.setDate(model.getDate());
 
         return contact;
     }
 
     public static ContactDTO createContact2() {
+        Contact model = ContactMock.createContact2();
         ContactDTO contact = new ContactDTO();
 
-        contact.setId(2L);
-        contact.setName("Jane Doe");
-        contact.setPhone("00999999999");
-        contact.setEmail("jane.doe@email.com");
-        contact.setMessage("Message test");
-        contact.setDate(LocalDateTime.now());
+        contact.setId(model.getId());
+        contact.setName(model.getName());
+        contact.setPhone(model.getPhone());
+        contact.setEmail(model.getEmail());
+        contact.setMessage(model.getMessage());
+        contact.setDate(model.getDate());
 
         return contact;
     }
