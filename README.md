@@ -1,4 +1,4 @@
-# API REST de Cadastro de Contato com Spring Boot
+# Nogran Email API
 
 Esta é uma API REST de cadastro de contato desenvolvida com Spring Boot. Ela permite que os usuários cadastrem seus dados de contato através de um formulário na Web e armazenem as informações em um banco de dados.
 Além disso, a API envia automaticamente um email para o administrador informando sobre o novo contato.
@@ -9,9 +9,22 @@ https://digitalnogran.com.br/
 - [**Back-End**](https://github.com/nogran/nogran-site-backend)
 - [**Documentação**](https://nogran-site.herokuapp.com/)
 
-## Descrição
+## Instalação
 
-Api para Cadastro de usuarios no banco de dados e envio automatico de E-mail contendo os inputs (dados inseridos do usuario) para a equipe responsavel.
+1. Clone o repositório:
+```git clone https://github.com/nogran/nogran.email.api.git```
+
+2. Entre na pasta do projeto:
+```cd nogran.email.api```
+
+3. Execute o seguinte comando para construir e executar a imagem do Docker:
+```docker-compose -f "docker-compose.yaml" up -d --build```
+
+Se tudo correr bem, a API estará disponível na URL http://localhost:8080/.
+
+## Contribuição
+
+Contribuições são bem-vindas. Para alterações importantes, por favor, abra uma issue para discutir o que você gostaria de mudar.
 
 ## :rocket: Tools:
 <div align="center">
