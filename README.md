@@ -1,5 +1,8 @@
-# Digital Nogran - Back-End
-API REST em Spring Boot para Site Corporativo.
+# Digital Nogran - nogran.email.api
+API REST de Cadastro de Contato com Spring Boot.
+
+Esta é uma API REST de cadastro de contato desenvolvida com Spring Boot. Ela permite que os usuários cadastrem seus dados de contato através de um formulário na Web e armazenem as informações em um banco de dados.
+Além disso, a API envia automaticamente um email para o administrador informando sobre o novo contato.
 
 https://digitalnogran.com.br/
 
