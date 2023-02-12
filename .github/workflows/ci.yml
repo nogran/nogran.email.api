@@ -17,6 +17,8 @@ jobs:
         USERNAME: ${{ secrets.SERVER_USERNAME }}
         PORT: ${{ secrets.SERVER_PORT }}
         KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
+        
+        ${{ secrets.SPRING_MAIL_HOST }}: ${{ secrets.SPRING_MAIL_HOST }}
       with:
         source: "."
         target: "${{ secrets.PROJECT_PATH }}"
