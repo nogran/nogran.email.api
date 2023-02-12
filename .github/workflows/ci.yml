@@ -33,4 +33,4 @@ jobs:
         script: |
           cd ${{ secrets.PROJECT_PATH }}
           git pull origin dev
-          docker compose up -d
+          docker compose up --build -d
