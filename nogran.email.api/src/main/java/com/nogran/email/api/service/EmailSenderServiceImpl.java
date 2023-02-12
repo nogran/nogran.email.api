@@ -6,9 +6,12 @@ import java.io.File;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
+import com.nogran.email.api.properties.EmailSenderProperties;
+import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,11 +20,15 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Slf4j
+//@ConfigurationPropertiesScan("com.nogran.properties")
+@AllArgsConstructor
 public class EmailSenderServiceImpl implements EmailSenderService {
     @Autowired
     private JavaMailSender javaMailSender;
     @Value("${spring.mail.username}")
     private String sender;
+
+    private final EmailSenderProperties emailProperties;
 
     public void sendSimpleMail(Email details) {
         try {

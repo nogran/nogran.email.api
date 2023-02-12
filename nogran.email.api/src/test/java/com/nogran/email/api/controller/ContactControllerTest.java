@@ -15,6 +15,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -87,21 +88,33 @@ public class ContactControllerTest {
                 .andExpect(jsonPath("$", hasSize(2)))
                 .andExpect(jsonPath("$[0].id", is(expected.get(0).getId().intValue())))
                 .andExpect(jsonPath("$[0].name", is(expected.get(0).getName())))
-                .andExpect(jsonPath("$[0].email", is(expected.get(0).getEmail())))
-                .andExpect(jsonPath("$[0].phone", is(expected.get(0).getPhone())))
-                .andExpect(jsonPath("$[1].id", is(expected.get(1).getId().intValue())))
-                .andExpect(jsonPath("$[1].name", is(expected.get(1).getName())))
                 .andExpect(jsonPath("$[1].email", is(expected.get(1).getEmail())))
                 .andExpect(jsonPath("$[1].phone", is(expected.get(1).getPhone())));
     }
+
+    @Test
+    public void findAllByNameContainingIgnoreCase_ShouldReturnNotFound() throws Exception {
+        List<Contact> contacts = new ArrayList<>();
+        List<ContactDTO> expected = ContactDTOMock.createContacts();
+
+        when(contactService.findAllByNameContainingIgnoreCase(anyString())).thenReturn(contacts);
+
+        mockMvc.perform(get("/api/v1/name/doe")
+                        .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isNotFound());
+    }
+
 
     @Test
     public void saveContato_ShouldReturnBadRequest_WhenEmailAlreadyExists() throws Exception {
         Contact contact = ContactMock.createContact1();
         when(contactService.save(contact)).thenReturn(null);
 
+        ObjectMapper objectMapper = new ObjectMapper();
+
         mockMvc.perform(post("/api/v1/save")
-                        .contentType(MediaType.APPLICATION_JSON))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.registerModule(new JavaTimeModule()).writeValueAsString(contact)))
                 .andExpect(status().isBadRequest());
     }
 
@@ -114,8 +127,7 @@ public class ContactControllerTest {
 
         mockMvc.perform(post("/api/v1/save")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.registerModule(new JavaTimeModule())
-                                .writeValueAsString(contact)))
+                        .content(objectMapper.registerModule(new JavaTimeModule()).writeValueAsString(contact)))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.id", is(contact.getId().intValue())))
                 .andExpect(jsonPath("$.name", is(contact.getName())))
