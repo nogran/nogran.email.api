@@ -1,3 +1,5 @@
+name: nogran.email.api CI
+
 on:
   push:
     branches:
