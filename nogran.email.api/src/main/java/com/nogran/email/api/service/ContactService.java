@@ -4,7 +4,6 @@ import com.nogran.email.api.domain.dto.ContactDTO;
 import com.nogran.email.api.repository.ContactRepository;
 import com.nogran.email.api.domain.mapper.ContactMapper;
 import com.nogran.email.api.domain.model.Contact;
-import com.nogran.email.api.domain.model.Email;
 import lombok.AllArgsConstructor;
 import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Service;
@@ -55,9 +54,5 @@ public class ContactService {
 
     public Contact save(Contact contact) {
         return contactRepository.save(contact);
-    }
-
-    public Email buildEmail(Contact contact, String from, String subject) {
-        return contactMapper.toEmail(contact, from, subject);
     }
 }

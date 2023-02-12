@@ -17,13 +17,11 @@ import org.springframework.web.bind.annotation.*;
 @Slf4j
 public class EmailSenderController {
     private final EmailService emailService;
-    private static String from = "no-reply@digitalnogran.com.br";
-    private static String subject = "Contato";
 
     @PostMapping(value = "/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute Contact contact) {
         log.info("POST: /api/v1/save with param Contato Email '{}'", contact.getEmail());
-        var isSent = emailService.isMailSent(contact, from, subject);
+        var isSent = emailService.isMailSent(contact);
         return isSent == false ?
                 ResponseEntity.status(HttpStatus.BAD_REQUEST).build() :
                 ResponseEntity.status(HttpStatus.CREATED).build();

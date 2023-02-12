@@ -1,6 +1,5 @@
 package com.nogran.email.api.domain.mapper;
 
-import com.nogran.email.api.domain.dto.ContactDTO;
 import com.nogran.email.api.domain.model.Contact;
 import com.nogran.email.api.domain.model.Email;
 import org.mapstruct.Mapper;
@@ -9,20 +8,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 @Mapper(componentModel = "spring")
-public class ContactMapperImpl implements ContactMapper {
-    public ContactDTO modelToDto(Contact model) {
-        ContactDTO contactDTO = new ContactDTO();
-
-        contactDTO.setId(model.getId());
-        contactDTO.setName(model.getName());
-        contactDTO.setPhone(model.getPhone());
-        contactDTO.setEmail(model.getEmail());
-        contactDTO.setMessage(model.getMessage());
-        contactDTO.setDate(model.getDate());
-
-        return contactDTO;
-    }
-
+public class EmailMapperImpl implements EmailMapper {
     public Email toEmail(Contact contact, String subject, String to) {
         Email email = new Email();
 

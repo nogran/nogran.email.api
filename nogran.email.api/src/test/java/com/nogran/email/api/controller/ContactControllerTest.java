@@ -95,7 +95,6 @@ public class ContactControllerTest {
     @Test
     public void findAllByNameContainingIgnoreCase_ShouldReturnNotFound() throws Exception {
         List<Contact> contacts = new ArrayList<>();
-        List<ContactDTO> expected = ContactDTOMock.createContacts();
 
         when(contactService.findAllByNameContainingIgnoreCase(anyString())).thenReturn(contacts);
 
