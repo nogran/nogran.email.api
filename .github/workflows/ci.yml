@@ -13,11 +13,11 @@ jobs:
     - name: Deploy using ssh
       uses: appleboy/ssh-action@master
       with:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        key: ${{ secrets.PRIVATE_KEY }}
-        port: 22
+        host: ${{ secrets.SERVER_IP }}
+        username: ${{ secrets.SERVER_USERNAME }}
+        key: ${{ secrets.SERVER_PRIVATE_KEY }}
+        port: ${{ secrets.SERVER_PORT }}
         script: |
-          cd ~/home/mateus/git-repo/nogran.email.api
+          cd ${{ secrets.PROJECT_PATH }}
           git pull origin dev
           docker-compose up --build
