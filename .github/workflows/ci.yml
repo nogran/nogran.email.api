@@ -1,4 +1,4 @@
-name: nogran.email.api CI
+name: nogran.email.api CI 
 
 on:
   push:
