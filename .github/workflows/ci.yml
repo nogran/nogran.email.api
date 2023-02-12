@@ -20,4 +20,4 @@ jobs:
         script: |
           cd ~/home/mateus/git-repo/nogran.email.api
           git pull origin dev
-          docker compose up -d
+          docker-compose up --build
