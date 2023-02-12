@@ -1,7 +1,7 @@
 name: nogran.email.api CI
 
 on:
-  pull_request:
+  push:
     branches:
       - dev
 
