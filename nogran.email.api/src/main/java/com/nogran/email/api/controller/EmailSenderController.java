@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class EmailSenderController {
     private final EmailService emailService;
 
-    @PostMapping(value = "/save", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @PostMapping(value = "/send", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> sendMail(@ModelAttribute Contact contact) {
         log.info("POST: /api/v1/save with param Contato Email '{}'", contact.getEmail());
         var isSent = emailService.isMailSent(contact);
