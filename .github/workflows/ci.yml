@@ -18,6 +18,8 @@ jobs:
         PORT: ${{ secrets.SERVER_PORT }}
         KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
         
+        SPRING_MAIL_HOST: ${{ secrets.SPRING_MAIL_HOST }}
+        
       with:
         source: "."
         target: "${{ secrets.PROJECT_PATH }}"
@@ -29,6 +31,7 @@ jobs:
         username: ${{ secrets.SERVER_USERNAME }}
         port: ${{ secrets.SERVER_PORT }}
         key: ${{ secrets.SERVER_PRIVATE_KEY }}
+        SPRING_MAIL_HOST: ${{ secrets.SPRING_MAIL_HOST }}
         script: |
           cd ${{ secrets.PROJECT_PATH }}
           git pull origin dev
