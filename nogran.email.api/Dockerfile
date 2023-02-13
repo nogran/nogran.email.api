@@ -14,7 +14,7 @@ RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=p
 # Non Cacheable steps
 
 COPY . .
-RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "package" ]
+RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "package" ]
 RUN mv ./target/`cat artifactId`-`cat version`.jar ./application.jar
 
 # Distribution Stage
@@ -27,4 +27,4 @@ COPY --from=build /build/application.jar ./application.jar
 
 COPY --from=build /build/opentelemetry-javaagent.jar ./opentelemetry-javaagent.jar
 RUN apk add freetype fontconfig ttf-dejavu
-CMD [ "java", "-Xms2048m", "-Xmx2560m", "-Dspring.profiles.active=${ENV:dev}", "-jar", "application.jar" ]
+CMD [ "java", "-Xms2048m", "-Xmx2560m", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "-jar", "application.jar" ]
