@@ -10,7 +10,7 @@ on:
       - feature/*
 jobs:
   web-deploy:
-      name: Deploy
+      name: deploy
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v3
