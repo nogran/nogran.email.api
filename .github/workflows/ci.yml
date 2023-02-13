@@ -31,5 +31,5 @@ jobs:
         script: |
           cd ${{ secrets.PROJECT_PATH }}
           git pull origin dev
-          docker compose -f docker-compose.yaml up -d --no-deps --build-arg SPRING_MAIL_PASSWORD=$SPRING_MAIL_PASSWORD
+          docker compose -f docker-compose.yaml up -d --no-deps --build -arg SPRING_MAIL_PASSWORD=$SPRING_MAIL_PASSWORD
           docker system prune -f
