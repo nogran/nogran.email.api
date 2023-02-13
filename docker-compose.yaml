@@ -6,6 +6,19 @@ services:
     build: ./nogran.email.api/
     restart: on-failure
     env_file: ./.env
+    environment: 
+      HOST: ${{ secrets.SERVER_IP }}
+      USERNAME: ${{ secrets.SERVER_USERNAME }}
+      PORT: ${{ secrets.SERVER_PORT }}
+      KEY: ${{ secrets.SERVER_PRIVATE_KEY }}
+      SPRING_MAIL_HOST: ${{ secrets.SPRING_MAIL_HOST }}
+      SPRING_MAIL_USERNAME: ${{ secrets.SPRING_MAIL_USERNAME }
+      SPRING_MAIL_PORT: ${{ secrets.SPRING_MAIL_PORT }}
+      SPRING_MAIL_PASSWORD: ${{ secrets.SPRING_MAIL_PASSWORD }}
+      SPRING_DATASOURCE_USERNAME: ${{ secrets.SPRING_DATASOURCE_USERNAME }}
+      SPRING_DATASOURCE_PASSWORD: ${{ secrets.SPRING_DATASOURCE_PASSWORD }}
+      SPRING_DATASOURCE_URL: ${{ secrets.SPRING_DATASOURCE_URL }}
+      NOGRAN_EMAIL_SENDER_PROPERTIES_TO: ${{ secrets.NOGRAN_EMAIL_SENDER_PROPERTIES_TO }}
     ports:
       - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     volumes:
