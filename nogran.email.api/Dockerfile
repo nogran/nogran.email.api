@@ -6,6 +6,8 @@ RUN apk add curl maven=3.8.3-r0
 RUN curl -s "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v1.12.0/opentelemetry-javaagent.jar" -o opentelemetry-javaagent.jar
 COPY pom.xml ./
 
+ENV SPRING_MAIL_HOST=${SPRING_MAIL_HOST}
+
 # Getting version info to build package
 
 RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=project.artifactId -q -DforceStdout > artifactId
@@ -14,7 +16,7 @@ RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=p
 # Non Cacheable steps
 
 COPY . .
-RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "clean", "package" ]
+RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "clean", "package" ]
 RUN mv ./target/`cat artifactId`-`cat version`.jar ./application.jar
 
 # Distribution Stage
@@ -27,4 +29,4 @@ COPY --from=build /build/application.jar ./application.jar
 
 COPY --from=build /build/opentelemetry-javaagent.jar ./opentelemetry-javaagent.jar
 RUN apk add freetype fontconfig ttf-dejavu
-CMD [ "java", "-Xms2048m", "-Xmx2560m", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "-jar", "application.jar" ]
+CMD [ "java", "-Xms2048m", "-Xmx2560m", "-Dspring.profiles.active=${ENV:dev}", "-jar", "application.jar" ]
