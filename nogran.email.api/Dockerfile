@@ -14,7 +14,7 @@ RUN mvn org.apache.maven.plugins:maven-help-plugin:3.2.0:evaluate -Dexpression=p
 # Non Cacheable steps
 
 COPY . .
-RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "package" ]
+RUN [ "mvn", "-Dspring.profiles.active=${ENV:dev}", "-Dspring.mail.host=${SPRING_MAIL_HOST}", "clean", "package" ]
 RUN mv ./target/`cat artifactId`-`cat version`.jar ./application.jar
 
 # Distribution Stage
